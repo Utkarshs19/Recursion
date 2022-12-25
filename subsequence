@@ -1,0 +1,34 @@
+#include<iostream> 
+using namespace std;
+#include<bits/stdc++.h>
+
+void printsubsequence(int i,int arr[],int n,vector<int> v)
+{
+    if(i>=n)
+    {
+        for(int i=0;i<v.size();i++)
+        cout<<v[i]<<" ";
+
+        if(v.size()==0)
+        {
+            cout<<"{}";
+        }
+        cout<<endl;
+        return;
+    }
+    // take the next element;
+    v.push_back(arr[i]);
+    printsubsequence(i+1,arr,n,v);
+    v.pop_back();
+    printsubsequence(i+1,arr,n,v);
+
+}
+
+int main()
+{
+    int arr[]={3,1,2};
+    int n=3;
+    vector<int> v;
+
+    printsubsequence(0,arr,n,v);
+}

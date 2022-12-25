@@ -1,0 +1,32 @@
+#include<iostream>
+#include<bits/stdc++.h>
+using namespace std;
+
+void print(int i,int arr[],int n,int target,int sum,vector<int>& v)
+{
+    if(i>=n)
+    {
+      v.push_back(sum);
+      return;
+    }
+    sum+=arr[i];
+    print(i+1,arr,n,target,sum,v);
+    sum=sum-arr[i];
+    print(i+1,arr,n,target,sum,v);
+    
+ 
+
+}
+int main(){
+    int arr[]={3,1,2};
+    int target=3;
+    int sum=0;
+    vector<int> v;
+    print(0,arr,3,target,sum,v);
+
+    for(int i=0;i<v.size();i++)
+    {
+        cout<<v[i]<<" ";
+    }
+    return 0;
+}

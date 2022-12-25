@@ -1,0 +1,15 @@
+#include<iostream>
+using namespace std;
+
+void Print(int n)
+{
+    if(n<1)
+    return;
+    
+    cout<<"Utkarsh"<<endl;
+    Print(n-1);
+}
+int main()
+{
+    Print(5);
+}

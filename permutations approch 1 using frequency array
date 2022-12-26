@@ -1,0 +1,34 @@
+class Solution {
+public:
+
+    void print(vector<int> nums,vector<int> v,int freq[],vector<vector<int>> &ans)
+    {
+        if(v.size()==nums.size())
+        {
+            ans.push_back(v);
+            return;
+        }
+
+        for(int i=0;i<nums.size();i++)
+        {
+            if(!freq[i])
+            {
+                v.push_back(nums[i]);
+                freq[i]=1;
+                print(nums,v,freq,ans);
+                v.pop_back();
+                freq[i]=0;
+            }
+        }
+    }
+
+    vector<vector<int>> permute(vector<int>& nums) {
+
+        vector<int> v;
+        vector<vector<int>> ans;
+        int freq[nums.size()];
+        for(int i=0;i<nums.size();i++)freq[i]=0;
+        print(nums,v,freq,ans);
+        return ans;
+    }
+};
